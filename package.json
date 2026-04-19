@@ -1,0 +1,15 @@
+{
+  "name": "jeevan-rakt-test-app",
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n backend,frontend -c blue,green \"npm run start --prefix backend\" \"npm run start --prefix frontend\"",
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "start:backend": "npm run start --prefix backend",
+    "start:frontend": "npm run start --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
