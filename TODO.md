@@ -1,2 +1,1 @@
-# Profile Appointments Fix - Update 2\n\n## Issue:\nRedirect works but appointments empty\n\n## Root Cause:\n1. Backend /schedule **NO auth middleware** → req.user null → no userId saved\n2. Form email may not match logged-in user email\n\n## Plan:\n1. [ ] Add `auth` middleware to backend post('/schedule')\n2. [ ] Prefill ScheduleDonation form with logged-in user data\n3. [ ] Test: appointments now link to userId & show in profile\n\n## Status:\n✅ Servers running | ✅ Auto-redirect | Backend fetch works (userId/email)"
 
