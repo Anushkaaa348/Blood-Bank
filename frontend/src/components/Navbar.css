@@ -1,0 +1,272 @@
+/* =============================================================== */
+/*                    NAVBAR STYLESHEET                            */
+/* =============================================================== */
+/* 
+  Main container for the navigation bar with gradient background,
+  sticky positioning, and responsive design.
+  Features smooth transitions and hover effects.
+*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(214, 40, 40, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Hover effect for enhanced user feedback */
+  &:hover {
+    box-shadow: 0 8px 32px rgba(247, 127, 0, 0.5);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* =============================================================== */
+/*                    LOGO STYLES                                   */
+/* =============================================================== */
+/* 
+  Logo container with link styling and gradient text effect.
+  Features smooth hover animations and text shadow.
+*/
+.logo-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #ffffff, #f8f8f8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+  margin: 0;
+  
+  /* Interactive hover effect */
+  &:hover {
+    transform: scale(1.05);
+    text-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* =============================================================== */
+/*                    NAVIGATION LINKS                             */
+/* =============================================================== */
+/* 
+  Navigation menu with list styling and link effects.
+  Features animated underline on hover and smooth transitions.
+*/
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Animated underline effect */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+  
+  /* Interactive hover states */
+  &:hover {
+    transform: translateY(-3px);
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.6);
+    
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+/* =============================================================== */
+/*                    LOGIN BUTTON                                 */
+/* =============================================================== */
+/* 
+  Login button with custom styling and interactive effects.
+  Features hover animations and shadow effects.
+*/
+.login-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.6rem 1.8rem !important;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  
+  /* Hover effect with scale and shadow */
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Remove default underline animation */
+  &::after {
+    display: none !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    padding: 0.6rem 1.2rem !important;
+    width: fit-content;
+    margin-top: 0.5rem;
+  }
+}
+
+/* =============================================================== */
+/*                    PROFILE CONTAINER                           */
+/* =============================================================== */
+/* 
+  Profile container with user avatar and details.
+  Features hover animation for better user interaction.
+*/
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  
+  /* Subtle hover effect */
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
+  }
+}
+
+/* =============================================================== */
+/*                    ANIMATIONS                                   */
+/* =============================================================== */
+/* 
+  Fade-in animation for navbar items with staggered delays.
+  Creates a sequential appearance effect.
+*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animations with staggered delays */
+.nav-links li {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.nav-links li:nth-child(1) { animation-delay: 0.1s; }
+.nav-links li:nth-child(2) { animation-delay: 0.2s; }
+.nav-links li:nth-child(3) { animation-delay: 0.3s; }
+.nav-links li:nth-child(4) { animation-delay: 0.4s; }
+
+/* =============================================================== */
+/*                    RESPONSIVE BREAKPOINTS                         */
+/* =============================================================== */
+/* 
+  Comprehensive responsive design adjustments for mobile devices.
+  Includes flex direction changes, spacing adjustments, and alignment.
+*/
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .nav-links {
+    margin-top: 1.5rem;
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-links a {
+    padding: 0.5rem 0;
+  }
+  
+  .login-btn {
+    padding: 0.6rem 1.2rem !important;
+    width: fit-content;
+    margin-top: 0.5rem;
+  }
+  
+  .profile-container {
+    margin-top: 0.5rem;
+  }
+}
+
+/* =============================================================== */
+/*                    ADDITIONAL ENHANCEMENTS                        */
+/* =============================================================== */
+/* 
+  Modern CSS enhancements for better visual effects and performance.
+  Includes hardware acceleration and smooth scrolling.
+*/
+
+/* Hardware acceleration for smoother animations */
+.navbar, .logo, .login-btn, .profile-container {
+  will-change: transform, opacity, box-shadow;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.nav-links a:focus, .login-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
